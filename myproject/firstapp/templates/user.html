@@ -1,0 +1,164 @@
+{% load crispy_forms_tags  %}
+<html>
+
+<head>
+  <title>:::USER REGISTRATION:::</title>
+  <style>
+    body{
+       background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);;
+    }
+    form{
+      color: black;
+    }
+    a{
+      color: black;
+      font-size: 20px;
+    }
+    
+    nav{
+  background:  #111;
+  height: 80px;
+  width: 100%;
+}
+label.logo{
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+    nav ul{
+  float: right;
+  margin-right: 20px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+a.active,a:hover{
+  background: #1b9bff;
+  transition: .5s;
+}
+
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+
+@media (max-width: 952px){
+  label.logo{
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color: #0082e6;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}
+
+.frame
+{
+  border: 1px solid #888;
+  display: inline-block;
+  padding:20px;
+
+  
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Event Manager</label>
+    <ul>
+      <li><a class="active" href="{% url 'app' %}" style="text-decoration: none;">Home</a></li>
+      <li><a href="{% url 'aboutus' %}" style="text-decoration: none;">About</a></li>
+     <li><a href="{% url 'contactme'%}" style="text-decoration: none;">Contact</a></li>
+     <li><a href="mailto:dineshvishnukanth@gmail.com" style="text-decoration: none;">MAIL US</a></li>
+    <li><a href="{% url 'userlogin' %}" style="text-decoration: none;">Logout</a></li>
+      
+    </ul>
+  </nav><br>
+  <br>
+  
+  <div class="surya">
+  <center>
+ <button><a href="{% url 'app' %}" style="text-decoration: none;">HOME</a></button> &nbsp;&nbsp;&nbsp;&nbsp;
+   <button><a href="{% url 'admin' %}" style="text-decoration: none;">ADMIN</a> </button>&nbsp;&nbsp;&nbsp;&nbsp;
+   <button><a href="{% url 'userreg' %}" style="text-decoration: none;"> REGISTER</a> </button>&nbsp;&nbsp;&nbsp;&nbsp;
+   <button><a href="{% url 'userlogin' %}" style="text-decoration: none;"> LOGIN</a> </button>&nbsp;&nbsp;&nbsp;&nbsp;
+  <br><br>
+  </center>
+  </div><br>
+  <hr color="black"><hr color="black"><br>
+<center>
+  <div class="frame" align="center" >
+  <h1 align="center" style="color: black;"><u> REGISTER</u></h1> 
+  <center>
+  <form method="post">
+  	{% csrf_token %}
+
+  	{% for field in form %}
+
+  	   {{ field | as_crispy_field }}
+
+  	{% endfor %}<br>
+<input type="submit" value="Register">
+  </form>
+
+</center>
+ </div>
+ </center>
+</body>
+</html>

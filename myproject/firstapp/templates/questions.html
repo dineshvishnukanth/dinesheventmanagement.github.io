@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Questions</title>
+    <style type="text/css">
+      body{
+      background-color: skyblue;
+      }
+    </style>
+</head>
+<body>
+  <h1 align="center">Please fill this form</h1>
+
+    <form  method="post" align="center" id="formid" action="{% url 'payment' %}">
+      {% csrf_token %}
+        <div id="error"></div>
+        
+        <fieldset id="group1">
+            How many people attend this event?
+            <br><input type="text" id="first" name="first" required=""/>
+        </fieldset>
+      
+        <fieldset id="group2">
+            Would you like to book AC/NON-AC?<br>
+          <input type="radio" value="value3"  name="group2" required=""/>AC<br>
+          <input type="radio" value="value4" name="group2">Non-AC<br>
+        </fieldset>
+
+        <fieldset id="group3">
+            Would you to have meals for this event?<br>
+            <input type="radio" value="value5" name="group3" required/>YES<br>
+            <input type="radio" value="value6" name="group3" >NO<br>
+          </fieldset>
+
+       
+
+          <fieldset id="group4">Would you like to get Photos for this event?<br>
+            <input type="radio" value="value7" name="group4" required/>YES<br>
+            <input type="radio" value="value8" name="group4">NO<br>
+          </fieldset>
+
+          <fieldset id="group5">Would you like to have Musical night?<br>
+            <input type="radio" value="value9" name="group5" required="">YES<br>
+            <input type="radio" value="value10" name="group5">NO<br>
+          </fieldset>
+
+          <fieldset id="group6">
+          <p>What is the exact date of the event?</p>
+          <input type="date" id="birthday" name="birthday" required>
+            </fieldset>
+
+
+        <fieldset id="group7">What is the exact time of the event?<br>
+            <input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
+        </fieldset>
+      <br>
+
+      
+      <button type="submit"  >SUBMIT</button>
+ 
+                 </form>       
+    
+
+   
+
+</body>
+
+</html>
+
+<script>
+  function myFunction(){
+    window.location.href='{% url 'payment' %}';
+  }
+</script>

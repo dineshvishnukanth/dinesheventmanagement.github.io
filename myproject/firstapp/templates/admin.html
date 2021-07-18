@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>::ADMIN LOGIN::</title>
+  <style>
+    a{
+      color:black;
+      font-size: 25px;
+    }
+    b{
+      color: white;
+    }
+    body{
+      background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);;;
+    }
+  </style>
+  
+</head>
+<body>
+  
+  <center>
+  <a href="{% url 'app' %}" style="text-decoration: none;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="{% url 'admin' %}" style="text-decoration: none;">ADMIN</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="{% url 'userreg' %}" style="text-decoration: none;">REGISTER</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="{% url 'userlogin' %}" style="text-decoration: none;">LOGIN</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  
+  </center><br>
+  <hr color="white"><hr color="white"><br>
+  
+  <h1 align="center" style="color: black;"><u>ADMIN LOGIN</u></h1> <br>
+  
+  <form  method="post" action="{% url 'checkadmin' %}">
+  	{% csrf_token %}
+  	<table align=center>
+  		<tr>
+ <td> <b>	Admin id:</b></td>
+  <td>	<input type="text" name="aid" required=""></td>
+</tr>
+<tr>
+  <td><b>Admin password:</b></td>
+  	<td><input type="password" name="apwd" required=""></td>
+  </tr>
+  	<td><input type="submit" value="Login"></td>
+
+
+</body>
+</html>
